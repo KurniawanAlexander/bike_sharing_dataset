@@ -1,4 +1,4 @@
-# Dashboard Rental Sepeda 🚲
+# Dashboard Rental Sepeda 
 
 ## Setup Environment - Anaconda
 ```
