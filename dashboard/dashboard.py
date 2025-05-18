@@ -29,24 +29,23 @@ day_df = pd.read_csv('dashboard/day_cleaned.csv')
 trend_bike = create_trend_bike(day_df)
 comparisson_workingday = create_comparisson_workingday(day_df)
 
-st.title('Dashboard Rental Sepeda🚲 ')
-tab1, tab2, tab3 = st.tabs(["Latar Belakang", "Data Set", "Chart"])
+st.title('Dashboard Rental Sepeda ')
+tab1, tab2, tab3 = st.tabs(["Pendahuluan", "Data Set", "Chart"])
  
 with tab1:
-    st.header("Latar Belakang Rental Sepeda")
-    st.image("dashboard/bike.jpg")
-    st.write("Sistem berbagi sepeda merupakan generasi baru dari penyewaan sepeda tradisional di mana seluruh proses mulai dari keanggotaan, penyewaan, dan pengembalian telah menjadi otomatis. Melalui sistem ini, pengguna dapat dengan mudah menyewa sepeda dari lokasi tertentu dan mengembalikannya di lokasi lain. Saat ini, terdapat sekitar lebih dari 500 program berbagi sepeda di seluruh dunia yang terdiri dari lebih dari 500 ribu sepeda. Saat ini, terdapat minat yang besar terhadap sistem ini karena perannya yang penting dalam masalah lalu lintas, lingkungan, dan kesehatan. Selain aplikasi sistem berbagi sepeda yang menarik di dunia nyata, karakteristik data yang dihasilkan oleh sistem ini membuatnya menarik untuk penelitian. Berbeda dengan layanan transportasi lain seperti bus atau kereta bawah tanah, durasi perjalanan, posisi keberangkatan, dan kedatangan dicatat secara eksplisit dalam sistem ini. Fitur ini mengubah sistem berbagi sepeda menjadi jaringan sensor virtual yang dapat digunakan untuk mendeteksi mobilitas di kota. Oleh karena itu, diharapkan sebagian besar peristiwa penting di kota dapat dideteksi melalui pemantauan data ini.")
+    st.header("Rental Sepeda")
+    st.image("dashboard/sepeda.jpg")
+    st.write("Sistem berbagi sepeda adalah generasi baru dari penyewaan sepeda tradisional di mana seluruh proses mulai dari keanggotaan, penyewaan, dan pengembalian sepeda menjadi otomatis. Melalui sistem ini, pengguna dapat dengan mudah menyewa sepeda dari posisi tertentu dan mengembalikannya di posisi lain. Saat ini, terdapat lebih dari 500 program berbagi sepeda di seluruh dunia yang terdiri dari lebih dari 500 ribu sepeda. Saat ini, terdapat minat yang besar terhadap sistem ini karena peran penting mereka dalam masalah lalu lintas, lingkungan dan kesehatan Terlepas dari aplikasi dunia nyata yang menarik dari sistem berbagi sepeda, karakteristik data yang dihasilkan oleh sistem ini membuatnya menarik untuk penelitian. Berbeda dengan layanan transportasi lain seperti bus atau kereta bawah tanah, durasi perjalanan, posisi keberangkatan dan kedatangan secara eksplisit dicatat dalam sistem ini. Fitur ini mengubah sistem berbagi sepeda menjadi jaringan sensor virtual yang dapat digunakan untuk merasakan mobilitas di kota. Dengan demikian, diharapkan sebagian besar kejadian penting di kota dapat dideteksi melalui pemantauan data ini.")
     
  
 with tab2:
     st.header("Data Set")
-    st.caption("Setelah dibersihkan")
     st.dataframe(data=day_df, width=800, height=500)
-    st.write("Proses penyewaan sepeda bersama sangat berkorelasi dengan lingkungan dan musim. Misalnya, kondisi cuaca, curah hujan, hari dalam seminggu, musim, jam dalam sehari, dll. dapat memengaruhi perilaku penyewaan. Kumpulan data inti terkait dengan catatan historis dua tahun yang sesuai dengan tahun 2011 dan 2012 dari sistem Capital Bikeshare, Washington D.C., AS yang tersedia untuk umum di http://capitalbikeshare.com/system-data. Kami menggabungkan data berdasarkan dua jam dan harian, lalu mengekstrak dan menambahkan informasi cuaca dan musim yang sesuai. Informasi cuaca diekstrak dari http://www.freemeteo.com.")
+    st.write("Proses penyewaan sepeda bersama sangat berkorelasi dengan kondisi lingkungan dan musim. Misalnya, kondisi cuaca, curah hujan, hari dalam seminggu, musim, jam dalam sehari, dan lain-lain dapat mempengaruhi perilaku penyewaan. Kumpulan data inti terkait dengan catatan historis dua tahun yang berhubungan dengan tahun 2011 dan 2012 dari sistem Capital Bikeshare, Washington D.C., Amerika Serikat yang tersedia untuk umum di http://capitalbikeshare.com/system-data. Kami mengumpulkan data tersebut dalam dua basis data per jam dan per hari, kemudian mengekstrak dan menambahkan informasi cuaca dan musim yang sesuai. Informasi cuaca diambil dari http://www.freemeteo.com.")
  
 with tab3:
     st.header("Chart Hasil Analisis")
-    st.subheader("Tren Jumlah Pengguna Sepeda Dalam Beberapa Tahun Terakhir")
+    st.subheader("Tren Jumlah Pengguna Sepeda Dalam Tahun 2011 dan 2012")
     
     trend_bike = trend_bike.reset_index() # Mereset index setiap row nya
     day_df['mnth'] = pd.Categorical(day_df['mnth'], categories=
@@ -77,7 +76,7 @@ with tab3:
     plt.legend(title="Tahun", loc="upper right")
     st.pyplot(plt)
     
-    with st.expander("Insight"):
+    with st.expander("Kesimpulan"):
         st.write("Tren rental sepeda meningkat pada tahun 2012 dari 2011, dan untuk setiap bulannya peningkatan terjadi dalam awal tahun sampai pertengahan tahun, walaupun selalu terjadi penurunan tren setiap akhir tahun dimulai dari bulan october.")
     st.subheader("Perbandingan Penyewa Sepeda Workingday Dan Holiday")
     plt.figure(figsize=(10,6))
@@ -91,6 +90,6 @@ with tab3:
     plt.xlabel(None)
     plt.ylabel('Jumlah Pengguna Sepeda')
     st.pyplot(plt)
-    with st.expander("Insight"):
+    with st.expander("Kesimpulan"):
         st.write("Lebih Banyak orang melakukan rental sepeda pada workday dibanding holiday. ini menunjukan bahwa orang suka menggunakan sepeda untuk menjalan kegiatan sehari-hari nya")
 
