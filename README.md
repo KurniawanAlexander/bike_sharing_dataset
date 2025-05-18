@@ -10,23 +10,32 @@ Dashboard ini dibuat menggunakan Python dan Streamlit untuk melakukan analisis t
 
 ---
 
-## ⚙️ Setup Environment
+## ⚙️ Setup Package di Visual Studio Code
 
-### Opsi 1 — Menggunakan Anaconda
 ```bash
-conda create --name main-ds python=3.9
-conda activate main-ds
-pip install -r requirements.txt
+pip install babel matplotlib pandas seaborn streamlit
 ```
 
-### Opsi 2 — Menggunakan Pipenv
+---
+
+## ⚙️ Cek Instalasi di Command Prompt
+
 ```bash
-mkdir proyek_analisis_data
-cd proyek_analisis_data
-pipenv install
-pipenv shell
-pip install -r requirements.txt
+python -m pip show babel
+python -m pip show matplotlib
+python -m pip show pandas
+python -m pip show seaborn
+python -m pip show streamlit
 ```
+
+---
+
+## 📝 Bikin Berkas requirements.txt
+Babel==2.17.0
+matplotlib==3.10.3
+pandas==2.2.3
+seaborn==0.13.2
+streamlit==1.45.1
 
 ---
 
@@ -50,8 +59,8 @@ submission/
 │       ├── data_1.csv            # Dataset tambahan 
 │       └── data_2.csv            # Dataset tambahan 
 ├── notebook.ipynb                # Proses analisis dan eksplorasi data
-├── requirements.txt              # Daftar library yang digunakan
 ├── README.md                     # Dokumentasi proyek
+├── requirements.txt              # Daftar library yang digunakan
 └── url.txt                       # Tautan ke dashboard online
 ```
 
