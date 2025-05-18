@@ -31,11 +31,11 @@ python -m pip show streamlit
 ---
 
 ## 📝 Bikin Berkas requirements.txt
-Babel==2.17.0
-matplotlib==3.10.3
-pandas==2.2.3
-seaborn==0.13.2
-streamlit==1.45.1
+- Babel==2.17.0
+- matplotlib==3.10.3
+- pandas==2.2.3
+- seaborn==0.13.2
+- streamlit==1.45.1
 
 ---
 
