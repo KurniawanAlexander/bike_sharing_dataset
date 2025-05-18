@@ -84,7 +84,8 @@ with tab3:
         x='workingday',
         y='cnt',
         palette='rocket',
-        data=day_df)
+        data=day_df,
+        legend=False)
 
     plt.title('Perbandingan Penyewa Sepeda Workingday Dan Holiday')
     plt.xlabel(None)
